@@ -1,0 +1,78 @@
+﻿@model IEnumerable<BookApp.Models.GiftItem>
+
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Gaveoversigt</h2>
+
+    <p>
+        <a asp-action="Create">Opret gave</a>
+
+    </p>
+
+    <p>
+        <a asp-action="GetGiftForGirls">Vis kun pigegaver</a>
+
+    </p>
+
+    <p>
+        <a asp-action="GetGiftForBoys">Vis kun drengegaver</a>
+
+    </p>
+
+    <p>
+        <a asp-action="Index">Vis alle gaver</a>
+
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Gave nummer")
+                </th>
+                <th>
+                    @Html.DisplayName("Gave Titel")
+                </th>
+                <th>
+                    @Html.DisplayName("GaveBeskrivelse")
+                </th>
+                <th>
+                    @Html.DisplayName("Dato Tilføjet")
+                </th>
+                <th>
+                    @Html.DisplayName("For Drenge")
+                </th>
+                <th>
+                    @Html.DisplayName("For Piger")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GiftNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreationDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BoyGift)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GirlGift)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
